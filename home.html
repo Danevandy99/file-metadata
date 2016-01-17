@@ -1,0 +1,27 @@
+<html>
+
+<body style='text-align: center'>
+    <form id="file-form">
+        <input type="file" name="the-file" id='myFile'/>
+        <input type="submit" value="Upload" />
+    </form>
+</body>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        var fileSize;
+        
+        $('#myFile').bind('change', function() {
+            fileSize = this.files[0].size;
+        });
+
+        $('form').on('submit', function(event) {
+            event.stopPropagation();
+            event.preventDefault();
+            alert('Your file is ' + fileSize + ' bytes');
+        });
+    });
+</script>
+
+</html>
